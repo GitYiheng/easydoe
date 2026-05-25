@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "easydoe"
+version = "0.1.0"
+description = "A minimal CLI for generating design-of-experiments configs via Latin Hypercube Sampling and more."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8,<3.13"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+keywords = ["doe", "lhs", "hyperparameter", "sampling", "machine-learning", "experiments"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+
+dependencies = [
+    "pyDOE2>=1.3.0",
+    "pyyaml>=6.0",
+    "numpy>=1.20.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+doe = "easydoe.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/easydoe"
+Issues = "https://github.com/yourusername/easydoe/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+easydoe = ["templates/*.yaml"]
